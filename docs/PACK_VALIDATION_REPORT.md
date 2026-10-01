@@ -27,7 +27,26 @@ The identity guard was redesigned from a negative keyword rule to a positive ass
 - Public C.A.O diagnostic and research register retained.
 - UI, security, API, data and model-evaluation specifications retained from the validated CAO PULSE pack.
 
-## Explicit limitation
-This environment does not certify dependency installation, Next.js production build, Vitest or Playwright execution because the generated archive intentionally contains no `node_modules`, and dependency resolution must be executed on the target machine. G0 therefore requires Hermes to run installation, build and the full test suite before implementation proceeds.
+## Runtime validation on target machine — 1 October 2026
+The following checks were executed against the implemented local repository after dependency installation and security hardening:
 
-This limitation is preserved explicitly rather than presenting unexecuted tests as successful.
+| Check | Result |
+| --- | --- |
+| `npm run identity:check` | PASS |
+| `npm run lint` | PASS |
+| `npm run typecheck` | PASS |
+| `npm run test` | PASS — 8 files, 18 tests |
+| `LIVE_AI=false npm run test:e2e` | PASS — 4/4 Playwright scenarios |
+| `npm run build` | PASS — 30 application routes |
+| `npm run audit:pack` | PASS |
+| `npm run trace:verify` | PASS — 27 requirements |
+| `LIVE_AI=false npm run models:eval` | PASS in intentional offline mode — 6 frozen candidate cases listed |
+| Demo smoke | PASS with an explicit isolated-demo Founder session: health, dashboard, opportunities and references returned 200 |
+
+## Known limitations and deployment boundary
+- The repository is a **synthetic, offline-first demonstrator**. Its repository state and opaque demo sessions are in memory and are resettable; they are not production persistence or authentication.
+- Persona switching is disabled by default. It requires both `DEMO_MODE=true` and `DEMO_PERSONA_SWITCH=true`, and must only be enabled in an isolated demonstration environment.
+- Live AI remains optional and disabled by default. No provider is presented as "best" and no live-provider evaluation result is claimed until the frozen evaluation suite is run with an explicitly approved provider and data-egress policy.
+- Production deployment still requires a real identity provider, persistent data store, session revocation strategy, HTTPS/HSTS enforcement, operational monitoring, and approved data-processing controls before any non-synthetic data is introduced.
+
+This limitation is preserved explicitly rather than presenting unexecuted production controls as successful.
