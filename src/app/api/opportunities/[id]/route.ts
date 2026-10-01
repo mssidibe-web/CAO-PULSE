@@ -1,1 +1,9 @@
-import {fail,ok} from '@/lib/api';import {repo} from '@/lib/data/repository';import {currentUser} from '@/lib/session';import {canEditOpportunity} from '@/lib/domain/permissions';export async function GET(_:Request,{params}:{params:Promise<{id:string}>}){const {id}=await params;const o=repo.opportunities().find(x=>x.id===id);return o?ok(o):fail('Introuvable',404)}export async function PATCH(req:Request,{params}:{params:Promise<{id:string}>}){const u=await currentUser();if(!canEditOpportunity(u.role))return fail('Interdit',403);const {id}=await params;const patch=await req.json();return ok(repo.updateOpportunity(id,patch))}
+import {z} from 'zod';
+import {fail,ok} from '@/lib/api';
+import {repo} from '@/lib/data/repository';
+import {currentUser} from '@/lib/session';
+import {canEditOpportunity} from '@/lib/domain/permissions';
+
+const patchSchema=z.object({nextAction:z.string().min(1).max(500).optional(),dueDate:z.string().date().optional(),priority:z.enum(['high','medium','low']).optional(),stage:z.enum(['signal','qualification','decision','capture','offer','result','capitalized']).optional()}).strict();
+export async function GET(_:Request,{params}:{params:Promise<{id:string}>}){const {id}=await params;const o=repo.opportunities().find(x=>x.id===id);return o?ok(o):fail('Introuvable',404)}
+export async function PATCH(req:Request,{params}:{params:Promise<{id:string}>}){const u=await currentUser();const {id}=await params;if(!canEditOpportunity(u.role)){repo.addAudit({id:`ae-${Date.now()}`,timestamp:new Date().toISOString(),userId:u.id,action:'opportunity_update',objectType:'opportunity',objectId:id,result:'denied'});return fail('Interdit',403)}const parsed=patchSchema.safeParse(await req.json());if(!parsed.success)return fail('Mise à jour invalide',400);const updated=repo.updateOpportunity(id,parsed.data);if(!updated)return fail('Introuvable',404);repo.addAudit({id:`ae-${Date.now()}`,timestamp:new Date().toISOString(),userId:u.id,action:'opportunity_update',objectType:'opportunity',objectId:id,result:'success'});return ok(updated)}
