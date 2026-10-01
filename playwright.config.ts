@@ -11,6 +11,7 @@ export default defineConfig({
     url: `${baseURL}/api/health`,
     reuseExistingServer: false,
     timeout: 120000,
+    env:{...process.env,DEMO_MODE:'true',DEMO_PERSONA_SWITCH:'true',LIVE_AI:'false'},
   },
 });
 
