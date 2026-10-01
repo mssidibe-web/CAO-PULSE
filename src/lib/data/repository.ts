@@ -17,6 +17,7 @@ export const repo={
  updateOpportunity:(id:string,patch:Partial<Opportunity>)=>{const o=state().opportunities.find(x=>x.id===id);if(!o)return null;Object.assign(o,patch);return o},
  updateRequirement:(id:string,patch:Partial<OfferRequirement>)=>{const x=state().requirements.find(v=>v.id===id);if(!x)return null;Object.assign(x,patch);return x},
  updateReviewPoint:(id:string,patch:Partial<ReviewPoint>)=>{const x=state().reviewPoints.find(v=>v.id===id);if(!x)return null;Object.assign(x,patch);return x},
+ updateAction:(id:string,patch:Partial<Action>)=>{const x=state().actions.find(v=>v.id===id);if(!x)return null;Object.assign(x,patch);return x},
  addBidDecision:(decision:BidDecision)=>{state().bidDecisions.unshift(decision);return decision},
  addAudit:(e:AuditEvent)=>{state().auditEvents.unshift(e);return e}
 };
