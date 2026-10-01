@@ -18,6 +18,7 @@
     "demo:smoke": "node scripts/demo-smoke.mjs",
     "demo:reset": "node scripts/reset-demo.mjs",
     "preflight": "node scripts/preflight.mjs",
+    "release:manifest": "node scripts/release-manifest.mjs",
     "audit:pack": "node scripts/audit-pack.mjs",
     "trace:verify": "node scripts/verify-traceability.mjs",
     "models:eval": "node scripts/model-eval.mjs",
