@@ -16,7 +16,7 @@ export async function POST(req:Request,{params}:{params:Promise<{id:string}>}){
   const u=await currentUser();const {id}=await params;
   if(!canDecideBid(u.role)){repo.addAudit({id:`ae-${Date.now()}`,timestamp:new Date().toISOString(),userId:u.id,action:'bid_decision',objectType:'opportunity',objectId:id,result:'denied'});return fail('Décision réservée à la direction',403)}
   const o=repo.opportunities().find(x=>x.id===id);if(!o)return fail('Introuvable',404);
-  const parsed=decisionSchema.safeParse(await req.json());if(!parsed.success)return fail('Décision invalide',400);
+  const parsed=decisionSchema.safeParse(await req.json().catch(()=>null));if(!parsed.success)return fail('Décision invalide',400);
   if(['GO','GO_CONDITIONAL'].includes(parsed.data.decision)&&blockingReasons(o).length)return fail('GO impossible: gate bloquant',409);
   const record=repo.addBidDecision({id:`bd-${Date.now()}`,opportunityId:id,...parsed.data,decidedBy:u.id,decidedAt:new Date().toISOString()});
   repo.addAudit({id:`ae-${Date.now()}`,timestamp:new Date().toISOString(),userId:u.id,action:`bid_decision_${parsed.data.decision}`,objectType:'opportunity',objectId:id,result:'success',metadata:{rationale:parsed.data.rationale}});
