@@ -70,7 +70,9 @@ export const missionDocuments:MissionDocument[]=[
 export const pbcRequests:PBCRequest[]=[
  {id:'pbc-001',missionId:'mis-001',title:'Relevés bancaires septembre',owner:'Client fictif',dueDate:'2026-10-02',status:'requested'},
  {id:'pbc-002',missionId:'mis-001',title:'Justificatifs immobilisations',owner:'Client fictif',dueDate:'2026-09-28',status:'overdue'},
- {id:'pbc-003',missionId:'mis-001',title:'PV comité de pilotage',owner:'Client fictif',dueDate:'2026-10-01',status:'received'}
+ {id:'pbc-003',missionId:'mis-001',title:'PV comité de pilotage',owner:'Client fictif',dueDate:'2026-10-01',status:'received'},
+ {id:'pbc-004',missionId:'mis-002',title:'Journal des habilitations SI',owner:'Client fictif',dueDate:'2026-10-04',status:'requested'},
+ {id:'pbc-005',missionId:'mis-002',title:'Dernier rapport de contrôle permanent',owner:'Client fictif',dueDate:'2026-09-30',status:'overdue'}
 ];
 
 export const reviewPoints:ReviewPoint[]=[
