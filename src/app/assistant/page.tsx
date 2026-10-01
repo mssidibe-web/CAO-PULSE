@@ -1,2 +1,2 @@
-import {PageHead} from '@/components/page-head';import {AssistantBox} from '@/components/assistant-box';
-export default function Assistant(){return <><PageHead eyebrow="Assistant transversal" title="Assistant contextuel" sub="La démo utilise FakeProvider par défaut. Les fournisseurs live sont optionnels, évalués et remplaçables."/><div style={{maxWidth:850,marginTop:18}}><AssistantBox/></div></>}
+import {notFound} from 'next/navigation';import {PageHead} from '@/components/page-head';import {AssistantBox} from '@/components/assistant-box';import {currentUser} from '@/lib/session';
+export default async function Assistant(){const user=await currentUser();if(user.role==='anonymous')notFound();return <><PageHead eyebrow="Assistant transversal" title="Assistant contextuel" sub="La démo utilise FakeProvider par défaut. Les fournisseurs live sont optionnels, évalués et remplaçables."/><div style={{maxWidth:850,marginTop:18}}><AssistantBox/></div></>}

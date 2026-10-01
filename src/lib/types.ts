@@ -1,4 +1,4 @@
-export type Role='founder'|'commercial'|'manager'|'expert'|'quality'|'admin';
+export type Role='anonymous'|'founder'|'commercial'|'manager'|'expert'|'quality'|'admin';
 export type Gate='PASS'|'WARN'|'BLOCKED';
 export type OpportunityStage='signal'|'qualification'|'decision'|'capture'|'eoi'|'rfp'|'negotiation'|'offer'|'result'|'capitalized';
 export type ProofStatus='missing'|'partial'|'proof_ready'|'expired';
