@@ -1,1 +1,1 @@
-import {ok} from '@/lib/api';import {repo} from '@/lib/data/repository';export async function GET(){return ok(repo.experts())}
+import {fail,ok} from '@/lib/api';import {repo} from '@/lib/data/repository';import {currentUser} from '@/lib/session';export async function GET(){const user=await currentUser();if(user.role==='anonymous')return fail('Experts interdits',403);return ok(repo.experts())}
