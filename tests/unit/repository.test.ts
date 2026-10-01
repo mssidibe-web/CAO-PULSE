@@ -17,4 +17,11 @@ describe('demo repository mutations',()=>{
     repo.reset();
     expect(repo.actions().find(item=>item.id==='act-001')?.status).toBe('todo');
   });
+
+  it('promotes a signal into a qualification opportunity',()=>{
+    const promoted=repo.promoteSignal('sig-001',{id:'opp-signal-test',title:'Signal qualifié',buyer:'Acheteur synthétique',country:'Mali',sector:'développement',source:'Test',sourceUrl:'https://example.invalid/test',fundingStatus:'unknown',deadline:'2026-10-18',estimatedValue:0,currency:'XOF',stage:'qualification',ownerId:'u-commercial',nextAction:'Qualifier',dueDate:'2026-10-18',priority:'medium',scores:{strategic:50,references:50,capacity:50,access:50,economics:50,competition:50},gates:{eligibility:'WARN',independence:'WARN',funding:'WARN'},referenceIds:[],expertIds:[],requirementIds:[]});
+    expect(promoted?.stage).toBe('qualification');
+    expect(repo.signals().some(item=>item.id==='sig-001')).toBe(false);
+    expect(repo.opportunities().some(item=>item.id==='opp-signal-test')).toBe(true);
+  });
 });

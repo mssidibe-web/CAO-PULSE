@@ -1,4 +1,4 @@
-import type {Action,AuditEvent,BidDecision,BillingMilestone,EvidenceItem,ExpertProfile,KnowledgeItem,Mission,MissionDocument,OfferRequirement,Opportunity,PBCRequest,ReferenceCase,ReviewPoint,User} from '@/lib/types';
+import type {Action,AuditEvent,BidDecision,BillingMilestone,EvidenceItem,ExpertProfile,KnowledgeItem,MarketSignal,Mission,MissionDocument,OfferRequirement,Opportunity,PBCRequest,ReferenceCase,ReviewPoint,User} from '@/lib/types';
 
 export const users:User[]=[
  {id:'u-founder',name:'Fondateur C.A.O (démo)',role:'founder',missionIds:[],active:true},
@@ -13,6 +13,11 @@ export const experts:ExpertProfile[]=[
  {id:'exp-001',name:'A. Traoré',title:'Expert-comptable senior',skills:['audit projets','IFRS','contrôle interne'],sectors:['développement','public'],countries:['Mali','Côte d’Ivoire'],languages:['français'],availability:'available',referenceIds:['ref-001','ref-003']},
  {id:'exp-002',name:'F. Koné',title:'Consultant systèmes & performance',skills:['SI','procédures','data'],sectors:['finance','microfinance'],countries:['Mali','Sénégal'],languages:['français','anglais'],availability:'limited',referenceIds:['ref-002']},
  {id:'exp-003',name:'M. Diallo',title:'Manager audit',skills:['audit financier','projets bailleurs'],sectors:['ONG','projets'],countries:['Mali','Burkina Faso'],languages:['français'],availability:'available',referenceIds:['ref-001','ref-004']}
+];
+
+export const signals:MarketSignal[]=[
+ {id:'sig-001',title:'Revue d’éligibilité et audit de clôture — programme PME',buyer:'Programme PME Sahel',country:'Mali',sector:'développement',source:'Veille publique synthétique',sourceUrl:'https://example.invalid/sig-001',detectedAt:'2026-10-01',deadline:'2026-10-18',estimatedValue:12000000,currency:'XOF'},
+ {id:'sig-002',title:'Accompagnement à la digitalisation comptable',buyer:'Institution de microfinance fictive',country:'Sénégal',sector:'microfinance',source:'Relation sectorielle synthétique',sourceUrl:'https://example.invalid/sig-002',detectedAt:'2026-09-30',deadline:'2026-10-25',estimatedValue:8500000,currency:'XOF'}
 ];
 
 export const evidence:EvidenceItem[]=[
