@@ -1,0 +1,1 @@
+import {ok} from '@/lib/api';import {currentUser} from '@/lib/session';import {searchKnowledge} from '@/lib/data/search';export async function GET(req:Request){const u=await currentUser();const q=new URL(req.url).searchParams.get('q')??'';return ok(searchKnowledge(u,q))}

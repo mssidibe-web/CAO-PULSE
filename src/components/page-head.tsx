@@ -1,0 +1,1 @@
+export function PageHead({eyebrow,title,sub}:{eyebrow:string;title:string;sub:string}){return <header><div className="eyebrow">{eyebrow}</div><h1 className="page-title">{title}</h1><div className="muted">{sub}</div></header>}

@@ -1,0 +1,44 @@
+{
+  "name": "cao-pulse-demo",
+  "version": "0.1.2",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "identity:check": "node scripts/assert-project-identity.mjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "demo:smoke": "node scripts/demo-smoke.mjs",
+    "demo:reset": "node scripts/reset-demo.mjs",
+    "audit:pack": "node scripts/audit-pack.mjs",
+    "trace:verify": "node scripts/verify-traceability.mjs",
+    "models:eval": "node scripts/model-eval.mjs",
+    "deps:check": "node scripts/check-dependencies.mjs",
+    "static:imports": "node scripts/static-import-check.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.6",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@tailwindcss/postcss": "4.3.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.3.6",
+    "tailwindcss": "4.3.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.0.0"
+  }
+}

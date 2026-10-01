@@ -1,0 +1,1 @@
+import {cookies} from 'next/headers';import {repo} from '@/lib/data/repository';import {fail,ok} from '@/lib/api';export async function POST(req:Request){const {userId}=await req.json();if(!repo.users().some(u=>u.id===userId))return fail('Persona inconnue',404);(await cookies()).set('cao_persona',userId,{httpOnly:true,sameSite:'lax'});return ok({userId})}

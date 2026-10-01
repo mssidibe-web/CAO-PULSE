@@ -1,0 +1,1 @@
+Implement G8 only after offline founder flow passes. Run model-eval harness first. Add provider through abstraction; preserve FakeProvider. Record model ID, date, prompt version, cost/latency observations and data-processing review.

@@ -1,0 +1,1 @@
+import type {ReactNode} from 'react';import './globals.css';import {Shell} from '@/components/shell';export const metadata={title:'CAO PULSE Demo',description:'Démonstrateur 3P Impact x C.A.O'};export default function RootLayout({children}:{children:ReactNode}){return <html lang="fr"><body><Shell>{children}</Shell></body></html>}

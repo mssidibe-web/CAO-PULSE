@@ -1,0 +1,1 @@
+import {describe,expect,it} from 'vitest';import {searchKnowledge} from '@/lib/data/search';import {users} from '@/lib/data/fixtures';describe('search',()=>{it('returns source-backed result',()=>{const r=searchKnowledge(users[0],'audit');expect(r.length).toBeGreaterThan(0);expect(r[0].citations.length).toBeGreaterThan(0)})})

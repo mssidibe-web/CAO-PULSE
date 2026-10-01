@@ -1,0 +1,14 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE users(id TEXT PRIMARY KEY,name TEXT NOT NULL,role TEXT NOT NULL,active INTEGER NOT NULL DEFAULT 1);
+CREATE TABLE experts(id TEXT PRIMARY KEY,name TEXT NOT NULL,title TEXT NOT NULL,profile_json TEXT NOT NULL);
+CREATE TABLE reference_cases(id TEXT PRIMARY KEY,title TEXT NOT NULL,client_alias TEXT NOT NULL,country TEXT,sector TEXT,service TEXT,year INTEGER,reusable INTEGER NOT NULL,proof_status TEXT NOT NULL,metadata_json TEXT NOT NULL);
+CREATE TABLE evidence_items(id TEXT PRIMARY KEY,reference_id TEXT NOT NULL,type TEXT NOT NULL,title TEXT NOT NULL,status TEXT NOT NULL,reusable INTEGER NOT NULL,locator TEXT,verified_at TEXT,FOREIGN KEY(reference_id) REFERENCES reference_cases(id));
+CREATE TABLE opportunities(id TEXT PRIMARY KEY,title TEXT NOT NULL,buyer TEXT,country TEXT,sector TEXT,source TEXT,source_url TEXT,funding_status TEXT,deadline TEXT,estimated_value NUMERIC,currency TEXT,stage TEXT,owner_id TEXT,next_action TEXT,due_date TEXT,priority TEXT,scores_json TEXT NOT NULL,gates_json TEXT NOT NULL,result TEXT,loss_reason TEXT);
+CREATE TABLE offer_requirements(id TEXT PRIMARY KEY,opportunity_id TEXT NOT NULL,category TEXT,text TEXT NOT NULL,mandatory INTEGER NOT NULL,status TEXT NOT NULL,evidence_ids_json TEXT NOT NULL,owner_id TEXT,due_date TEXT,FOREIGN KEY(opportunity_id) REFERENCES opportunities(id));
+CREATE TABLE missions(id TEXT PRIMARY KEY,name TEXT NOT NULL,client_alias TEXT,type TEXT,status TEXT,manager_id TEXT,partner_id TEXT,start_date TEXT,end_date TEXT,progress INTEGER,authorized_users_json TEXT NOT NULL);
+CREATE TABLE mission_documents(id TEXT PRIMARY KEY,mission_id TEXT NOT NULL,title TEXT,kind TEXT,content TEXT,source_id TEXT,injected INTEGER DEFAULT 0,FOREIGN KEY(mission_id) REFERENCES missions(id));
+CREATE TABLE pbc_requests(id TEXT PRIMARY KEY,mission_id TEXT NOT NULL,title TEXT,owner TEXT,due_date TEXT,status TEXT,FOREIGN KEY(mission_id) REFERENCES missions(id));
+CREATE TABLE review_points(id TEXT PRIMARY KEY,mission_id TEXT NOT NULL,severity TEXT,title TEXT,description TEXT,source_document_id TEXT,owner_id TEXT,due_date TEXT,status TEXT,FOREIGN KEY(mission_id) REFERENCES missions(id));
+CREATE TABLE billing_milestones(id TEXT PRIMARY KEY,mission_id TEXT NOT NULL,label TEXT,amount NUMERIC,currency TEXT,due_date TEXT,status TEXT,FOREIGN KEY(mission_id) REFERENCES missions(id));
+CREATE TABLE actions(id TEXT PRIMARY KEY,object_type TEXT,object_id TEXT,title TEXT,owner_id TEXT,due_date TEXT,status TEXT,priority TEXT);
+CREATE TABLE audit_events(id TEXT PRIMARY KEY,timestamp TEXT,user_id TEXT,action TEXT,object_type TEXT,object_id TEXT,result TEXT,metadata_json TEXT);

@@ -1,0 +1,2 @@
+import type {AIResponse} from '@/lib/types';
+export function citationStatus(response:AIResponse){if(response.unsupported?.length)return {valid:true,reason:'explicit unsupported labels'};if(!response.text.trim())return {valid:false,reason:'empty output'};if(response.citations.length===0)return {valid:false,reason:'uncited output - acceptable only for deterministic KPI explanations or explicit abstention'};return {valid:true,reason:'cited'}}

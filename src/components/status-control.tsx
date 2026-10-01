@@ -1,0 +1,2 @@
+'use client';import {useRouter} from 'next/navigation';
+export function StatusControl({endpoint,id,value,options}:{endpoint:string;id:string;value:string;options:string[]}){const r=useRouter();return <select className="select" value={value} onChange={async e=>{await fetch(`${endpoint}/${id}`,{method:'PATCH',headers:{'content-type':'application/json'},body:JSON.stringify({status:e.target.value})});r.refresh()}}>{options.map(x=><option key={x}>{x}</option>)}</select>}

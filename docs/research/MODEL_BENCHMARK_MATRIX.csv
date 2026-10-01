@@ -1,0 +1,5 @@
+Model,Status at 2026-09-30,Vendor-stated positioning,Context/Output,Tool/structured support,Pack role,Source IDs
+GPT-6.1 Sol,Released 2026-09-29,"Complex coding, computer use, professional work","1.05M context / 128K max output",Responses API tool calling,"Candidate live provider; not preselected",OAI-01;OAI-02
+Claude Sonnet 5.5,Announced 2026-09-28,"Scoped everyday work, bug fixing, polished artifacts; vendor reports strong agentic coding","See current Anthropic docs before integration","Anthropic Messages/tool ecosystem - recheck current docs","Candidate live provider; not preselected",ANT-01
+Gemini 3.8 Flash,GA 2026-09-02,"Long-horizon software engineering, autonomous agents, complex enterprise workflows","1,048,576 input / 65,536 output","Function calling; structured outputs; code execution; file search","Candidate live provider; not preselected",GOO-01;GOO-02
+FakeProvider,Local deterministic,Offline test fixture,Local,No external tools,Default P0 and presentation fallback,PROJECT

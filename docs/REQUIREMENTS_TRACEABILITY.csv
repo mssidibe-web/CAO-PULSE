@@ -1,0 +1,28 @@
+REQ-ID,Axis,Requirement,Implementation,Test/Evidence,Priority
+CORE-01,Core,Offline founder flow,src/lib/ai/fake-provider.ts; src/lib/ai/index.ts,tests/unit/fake-provider.test.ts; tests/e2e/founder-flow.spec.ts,P0
+CORE-02,Core,Synthetic demo banner,src/components/demo-banner.tsx,visual smoke,P0
+SEC-01,Security,Server-side mission authorization,src/lib/domain/permissions.ts; mission API,tests/unit/permissions.test.ts,P0
+SEC-02,Security,Prompt injection treated as untrusted data,fixtures doc-004; system prompts,tests/adversarial/CASES.md; EVAL-MISSION-01,P0
+GR-01,Growth,Opportunity pipeline,src/app/growth/page.tsx; opportunities API,founder-flow,P0
+GR-02,Growth,Transparent weighted score,src/lib/domain/scoring.ts; opportunity detail,tests/unit/scoring.test.ts,P0
+GR-03,Growth,Blocking eligibility/independence gates,src/lib/domain/scoring.ts; decision route,tests/unit/scoring.test.ts; adversarial case 4,P0
+GR-04,Growth,Human Bid decision confirmation,decision-controls.tsx; decision API,founder-flow/manual,P0
+GR-05,Growth,Next action and deadline,fixtures; growth UI,founder-flow,P0
+REF-01,Reference,Reference portfolio,references pages/API,founder-flow,P0
+REF-02,Reference,Evidence ledger,references/[id]; EvidenceItem,founder-flow,P0
+REF-03,Reference,Proof readiness deterministic,proof-readiness.ts,tests/unit/proof-readiness.test.ts,P0
+REF-04,Reference,Reference matching,api/references/match,model eval REF cases/manual,P1
+OFF-01,Offers,Requirement matrix,offers page; requirements API,founder-flow,P0
+OFF-02,Offers,Mandatory coverage uses reusable evidence,requirements.ts,tests/unit/requirements.test.ts,P0
+CMD-01,Command,Founder cockpit,dashboard page/API,founder-flow,P0
+CMD-02,Command,Cash/billing signals,billing fixtures/API/dashboard,manual + dashboard API,P0
+DEL-01,Delivery,Authorized mission workspace,missions pages/APIs,permissions + founder flow,P0
+DEL-02,Delivery,PBC/evidence requests,PBC fixtures/mission UI,founder-flow,P0
+DEL-03,Delivery,Review points human status,review point API/status control,manual/E2E,P0
+DEL-04,Delivery,AI draft no professional conclusion,mission analyze API/system prompt,EVAL-MISSION-02,P0
+AI-01,AI,Provider-neutral interface,src/lib/ai/provider.ts + adapters,model-eval harness,P1
+AI-02,AI,Live AI optional kill switch,src/lib/ai/index.ts; env,fake provider test,P0
+AI-03,AI,Model selection auditable,scripts/model-eval.mjs; research docs,artifacts/model-evals,P1
+UX-01,UX,Executive design not chatbot,globals.css; shell; UI_SYSTEM.md,visual smoke,P0
+OPS-01,Ops,Pack audit and traceability,scripts/audit-pack.mjs; verify-traceability.mjs,npm run audit:pack; trace:verify,P0
+OPS-02,Ops,Deterministic reset,repo.reset; demo/reset API,manual/admin test,P0

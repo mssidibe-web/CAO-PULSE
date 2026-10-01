@@ -1,0 +1,1 @@
+import {ok} from '@/lib/api';import {repo} from '@/lib/data/repository';import {proofReadiness} from '@/lib/domain/proof-readiness';export async function GET(){return ok(repo.references().map(r=>({...r,computed:proofReadiness(r,repo.evidence())})))}

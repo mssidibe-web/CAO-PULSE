@@ -1,0 +1,1 @@
+import {ok} from '@/lib/api';import {repo} from '@/lib/data/repository';import {currentUser} from '@/lib/session';import {canReadMission} from '@/lib/domain/permissions';export async function GET(){const u=await currentUser();return ok(repo.missions().filter(m=>canReadMission(u,m)))}

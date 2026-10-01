@@ -1,0 +1,2 @@
+import type {EvidenceItem,OfferRequirement} from '@/lib/types';
+export function requirementCoverage(reqs:OfferRequirement[],ev:EvidenceItem[]){const mandatory=reqs.filter(r=>r.mandatory);const covered=mandatory.filter(r=>r.status==='validated'||(r.status==='matched'&&r.evidenceIds.some(id=>ev.some(e=>e.id===id&&e.status==='verified'&&e.reusable))));return {mandatory:mandatory.length,covered:covered.length,pct:mandatory.length?Math.round(covered.length/mandatory.length*100):100}}

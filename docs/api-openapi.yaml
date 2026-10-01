@@ -1,0 +1,15 @@
+openapi: 3.1.0
+info: {title: CAO PULSE Demo API, version: 0.1.0}
+servers: [{url: http://localhost:3000}]
+paths:
+  /api/dashboard: {get: {summary: Founder KPIs, responses: {'200': {description: OK}}}}
+  /api/opportunities: {get: {summary: List opportunities, responses: {'200': {description: OK}}}}
+  /api/opportunities/{id}/score: {post: {summary: Deterministic score and gates, parameters: [{in: path,name: id,required: true,schema: {type: string}}], responses: {'200': {description: OK}}}}
+  /api/opportunities/{id}/decision: {post: {summary: Human-confirmed Bid decision; blocked gates enforced server side, parameters: [{in: path,name: id,required: true,schema: {type: string}}], responses: {'200': {description: OK},'403': {description: Forbidden},'409': {description: Gate blocked}}}}
+  /api/references: {get: {summary: References with computed proof readiness, responses: {'200': {description: OK}}}}
+  /api/references/match: {post: {summary: Deterministic reference keyword matching demo, responses: {'200': {description: OK}}}}
+  /api/requirements: {get: {summary: Offer requirements, responses: {'200': {description: OK}}}}
+  /api/missions: {get: {summary: Authorized missions, responses: {'200': {description: OK}}}}
+  /api/missions/{id}/analyze: {post: {summary: Source-backed/fallback mission draft, parameters: [{in: path,name: id,required: true,schema: {type: string}}], responses: {'200': {description: OK},'403': {description: Forbidden}}}}
+  /api/assistant: {post: {summary: Contextual provider-agnostic assistant, responses: {'200': {description: OK}}}}
+  /api/demo/reset: {post: {summary: Reset synthetic mutable state, responses: {'200': {description: OK},'403': {description: Admin only}}}}

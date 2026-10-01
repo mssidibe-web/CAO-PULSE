@@ -1,0 +1,2 @@
+'use client';import {useRouter} from 'next/navigation';
+export function PersonaSwitch({value,users}:{value:string;users:{id:string;name:string}[]}){const r=useRouter();return <select className="select" value={value} onChange={async e=>{await fetch('/api/persona',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({userId:e.target.value})});r.refresh()}}>{users.map(u=><option key={u.id} value={u.id}>{u.name}</option>)}</select>}

@@ -1,0 +1,5 @@
+import type {Citation,User} from '@/lib/types';import {repo} from './repository';import {proofReadiness} from '@/lib/domain/proof-readiness';
+export function searchKnowledge(user:User,q:string){const n=q.toLowerCase();const out:{kind:string;id:string;title:string;snippet:string;citations:Citation[]}[]=[];
+ for(const k of repo.knowledge()) if(k.allowedRoles.includes(user.role)&&(k.title+' '+k.content).toLowerCase().includes(n.split(' ')[0]||'')) out.push({kind:'knowledge',id:k.id,title:k.title,snippet:k.content,citations:[{sourceId:k.sourceId,title:k.title,locator:'fiche synthétique'}]});
+ for(const r of repo.references()) if((r.title+' '+r.summary+' '+r.keywords.join(' ')).toLowerCase().includes(n.split(' ')[0]||'')){const p=proofReadiness(r,repo.evidence());out.push({kind:'reference',id:r.id,title:r.title,snippet:`${r.summary} | proof-ready=${p.ready?'oui':'non'}`,citations:r.evidenceIds.map(id=>{const e=repo.evidence().find(x=>x.id===id);return {sourceId:id,title:e?.title??id,locator:e?.locator??'non disponible'}})})}
+ return out.slice(0,10)}

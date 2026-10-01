@@ -1,0 +1,3 @@
+import type {EvidenceItem,ReferenceCase} from '@/lib/types';
+export function evidenceFor(ref:ReferenceCase,items:EvidenceItem[]){return items.filter(e=>ref.evidenceIds.includes(e.id))}
+export function proofReadiness(ref:ReferenceCase,items:EvidenceItem[]){const ev=evidenceFor(ref,items);const valid=ev.filter(e=>e.status==='verified'&&e.reusable);const blockers:string[]=[];if(!ref.reusable)blockers.push('Référence non autorisée à la réutilisation');if(valid.length===0)blockers.push('Aucune preuve vérifiée et réutilisable');if(ev.some(e=>e.status==='expired'))blockers.push('Preuve expirée');return {ready:ref.reusable&&valid.length>0,validCount:valid.length,total:ev.length,blockers}}

@@ -1,0 +1,1 @@
+import {fail,ok} from '@/lib/api';import {repo} from '@/lib/data/repository';import {currentUser} from '@/lib/session';export async function POST(){const u=await currentUser();if(u.role!=='admin')return fail('Admin uniquement',403);repo.reset();return ok({reset:true})}

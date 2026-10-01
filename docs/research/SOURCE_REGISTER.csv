@@ -1,0 +1,19 @@
+ID,Class,Publisher,Title,Date/Access,URL,Claim used
+HERMES-01,VERIFIED PLATFORM,Nous Research,Hermes Context Files,2026-09-30,https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files,HERMES.md/.hermes.md highest project context priority; AGENTS hierarchy/progressive discovery.
+HERMES-02,VERIFIED PLATFORM,Nous Research,Hermes Profiles,2026-09-30,https://hermes-agent.nousresearch.com/docs/user-guide/profiles,"Separate profile has isolated config, keys, memory, sessions and state."
+HERMES-03,VERIFIED PLATFORM,Nous Research/GitHub,Hermes Agent releases,2026-09-30,https://github.com/NousResearch/hermes-agent/releases,Latest observed tagged release v0.21.3 dated 2026-09-14; re-check before implementation.
+OAI-01,VENDOR MODEL FACT,OpenAI,GPT-6.1 Sol model,2026-09-30,https://developers.openai.com/api/docs/models/gpt-6.1-sol,Released for complex coding/professional work; Responses API tool calling; context and pricing stated by OpenAI.
+OAI-02,VENDOR CHANGELOG,OpenAI,API Changelog,2026-09-30,https://developers.openai.com/api/docs/changelog,GPT-6.1 Sol released 2026-09-29; Agents API computer use update.
+ANT-01,VENDOR MODEL CLAIM,Anthropic,Claude Sonnet 5.5,2026-09-30,https://www.anthropic.com/claude-sonnet-5-5,Announced 2026-09-28; vendor performance/speed/cost claims.
+GOO-01,VENDOR MODEL FACT,Google,Gemini 3.8 Flash,2026-09-30,https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash,"GA model, token limits and capabilities."
+GOO-02,VENDOR CHANGELOG,Google,Gemini API latest model/release notes,2026-09-30,https://ai.google.dev/gemini-api/docs/latest-model,Gemini 3.8 Flash GA for enterprise/agentic workflows.
+CASE-01,VENDOR PRODUCT CLAIM,Caseware,AI for Audit & Accounting,2026-09-30,https://www.caseware.com/platform/ai,Agents embedded in engagement workflow; citation-backed suggestions; governance.
+CASE-02,VENDOR PRODUCT CLAIM,Caseware,Caseware Audit,2026-09-30,https://www.caseware.com/products/audit,"Connected risks/procedures/evidence/sign-offs, analytics and AI assistance."
+DS-01,VENDOR PRODUCT CLAIM,DataSnipper,DataSnipper Platform,2026-09-30,https://www.datasnipper.com/product/platform,Plan/collect/verify/report and source-linked evidence workflow.
+TR-01,VENDOR PRODUCT CLAIM,Thomson Reuters,CoCounsel Audit & Accounting,2026-09-30,https://tax.thomsonreuters.com/en/products/cocounsel-audit-accounting,"Research, multi-document analysis, workpapers, guided/agentic workflows, citations."
+MB-01,VENDOR PRODUCT CLAIM,MindBridge,Audit & Assurance Platform update,2026-09-30,https://www.mindbridge.ai/news/mindbridge-expands-audit-assurance-platform-to-improve-audit-quality-efficiency-and-risk-assessment/,"Full-population analysis, explainability, risk prioritization."
+RESP-01,VENDOR PRODUCT CLAIM,Responsive,AI RFP software,2026-09-30,https://www.responsive.io/solutions/ai-rfp-software,"Verified knowledge, stale content, review routing, requirements/win tracking."
+LOOP-01,VENDOR PRODUCT CLAIM,Loopio,RFP response software,2026-09-30,https://learn.loopio.com/rfp-response-software/,"Approved content library, provenance, AI drafting/summarization."
+CAO-01,VERIFIED PUBLIC POSITIONING,Cabinet C.A.O,A propos,2026-09-30,https://cabinetcao.com/a-propos/,Public positioning: management advice; transformation; performance; innovation; nearly 20 years stated by C.A.O.
+CAO-02,PUBLIC PROCUREMENT RESULT,World Bank procurement notice via FreeTender,PRAPS 2-ML external audit award,2026-09-30,https://freetender.net/tender/audit-externe-du-praps-2-ml-exercices-2025-2026-et-2027-op00462860,Awarded to C.A.O; technical 97; financial 100; combined 97.6; rank 1. Re-check underlying STEP record before external publication.
+CAO-03,PUBLIC PLATFORM SIGNAL,LinkedIn,Cabinet CAO company page,2026-09-30,https://www.linkedin.com/company/cabinet-cao/,Bamako; accounting/audit/advisory/organization; platform company-size band 2-10 employees.

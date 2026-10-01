@@ -1,0 +1,1 @@
+import {describe,expect,it} from 'vitest';import {evidence,requirements} from '@/lib/data/fixtures';import {requirementCoverage} from '@/lib/domain/requirements';describe('requirements',()=>{it('does not treat open as covered',()=>{const x=requirementCoverage(requirements.filter(r=>r.opportunityId==='opp-001'),evidence);expect(x.covered).toBeLessThan(x.mandatory)})})

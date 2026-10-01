@@ -1,0 +1,22 @@
+[
+  {
+    "id": "q1",
+    "q": "audit projets",
+    "expect_source": true
+  },
+  {
+    "id": "q2",
+    "q": "procédures",
+    "expect_source": true
+  },
+  {
+    "id": "q3",
+    "q": "microfinance",
+    "expect_source": true
+  },
+  {
+    "id": "q4",
+    "q": "élément absent xyz",
+    "expect_abstention": true
+  }
+]

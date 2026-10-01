@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "product_id": "cao-pulse",
+  "product_name": "CAO PULSE",
+  "client_name": "Cabinet C.A.O",
+  "pack_version": "1.2",
+  "package_name": "cao-pulse-demo",
+  "expected_hermes_profile": "cao-pulse-dev",
+  "canonical_source": "docs/Cahier_des_charges_source.docx",
+  "canonical_source_sha256": "0103886565552d8291e879e3a2a090d8779423b71ade5b170889a6f66e760058",
+  "required_modules": [
+    "CAO Growth Engine",
+    "CAO Reference Intelligence",
+    "CAO Command Center",
+    "CAO Delivery Copilot"
+  ],
+  "allowed_remote_slug_prefix": "cao-pulse",
+  "issued_at": "2026-10-01"
+}

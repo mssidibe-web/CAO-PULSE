@@ -1,0 +1,1 @@
+import {ok} from '@/lib/api';import {repo} from '@/lib/data/repository';import {computeKpis} from '@/lib/domain/kpis';export async function GET(){return ok(computeKpis(repo.opportunities(),repo.references(),repo.evidence(),repo.requirements(),repo.reviewPoints(),repo.billing(),repo.actions()))}

@@ -1,0 +1,1 @@
+Implement G0/G1 only. Read HERMES.md and traceability. Verify dependencies against official sources, freeze evidence, ensure shell/routes render, and do not add live AI. Return commands and test evidence.

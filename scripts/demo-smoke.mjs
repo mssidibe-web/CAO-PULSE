@@ -1,0 +1,1 @@
+const base=process.env.DEMO_URL??'http://localhost:3000';const paths=['/api/health','/api/dashboard','/api/opportunities','/api/references'];let bad=0;for(const p of paths){try{const r=await fetch(base+p);console.log(r.status,p);if(!r.ok)bad++}catch(e){console.error('FAIL',p,String(e));bad++}}if(bad)process.exit(1);console.log('Demo smoke OK');
