@@ -1,1 +1,1 @@
-import {ok} from '@/lib/api';import {repo} from '@/lib/data/repository';export async function GET(){return ok(repo.billing())}
+import {fail,ok} from '@/lib/api';import {repo} from '@/lib/data/repository';import {currentUser} from '@/lib/session';export async function GET(){const user=await currentUser();if(!['founder','admin'].includes(user.role))return fail('Vue cash réservée à la direction',403);return ok(repo.billing())}
