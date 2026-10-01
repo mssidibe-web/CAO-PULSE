@@ -32,6 +32,7 @@ The following checks were executed against the implemented local repository afte
 
 | Check | Result |
 | --- | --- |
+| `npm run preflight` | PASS — offline release gate completed end-to-end |
 | `npm run identity:check` | PASS |
 | `npm run lint` | PASS |
 | `npm run typecheck` | PASS |
