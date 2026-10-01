@@ -12,7 +12,7 @@ export async function PATCH(req:Request,{params}:{params:Promise<{id:string}>}){
     repo.addAudit({id:`ae-${Date.now()}`,timestamp:new Date().toISOString(),userId:user.id,action:'action_update',objectType:'action',objectId:id,result:'denied'});
     return fail('Action interdite',403);
   }
-  const parsed=patchSchema.safeParse(await req.json());
+  const parsed=patchSchema.safeParse(await req.json().catch(()=>null));
   if(!parsed.success)return fail('Mise à jour invalide',400);
   const updated=repo.updateAction(id,parsed.data);
   repo.addAudit({id:`ae-${Date.now()}`,timestamp:new Date().toISOString(),userId:user.id,action:'action_update',objectType:'action',objectId:id,result:'success'});
