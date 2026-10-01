@@ -36,7 +36,7 @@ The following checks were executed against the implemented local repository afte
 | `npm run lint` | PASS |
 | `npm run typecheck` | PASS |
 | `npm run test` | PASS — 8 files, 18 tests |
-| `LIVE_AI=false npm run test:e2e` | PASS — 4/4 Playwright scenarios |
+| `LIVE_AI=false npm run test:e2e` | PASS — 6/6 Playwright scenarios |
 | `npm run build` | PASS — 30 application routes |
 | `npm run audit:pack` | PASS |
 | `npm run trace:verify` | PASS — 27 requirements |
