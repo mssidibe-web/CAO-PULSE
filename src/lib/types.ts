@@ -20,6 +20,7 @@ export interface PBCRequest {id:string;missionId:string;title:string;owner:strin
 export interface ReviewPoint {id:string;missionId:string;severity:'info'|'minor'|'major'|'blocking';title:string;description:string;sourceDocumentId?:string;ownerId:string;dueDate:string;status:'open'|'resolved'|'rejected'}
 export interface BillingMilestone {id:string;missionId:string;label:string;amount:number;currency:'XOF'|'EUR'|'USD';dueDate:string;status:'future'|'ready_to_bill'|'invoiced'|'overdue'|'paid'}
 export interface KnowledgeItem {id:string;title:string;kind:'method'|'policy'|'reference_note';content:string;sourceId:string;allowedRoles:Role[];validThrough?:string}
+export interface MissionDraftReview {id:string;missionId:string;outcome:'accepted'|'rejected';rationale:string;reviewedBy:string;reviewedAt:string}
 export interface AuditEvent {id:string;timestamp:string;userId:string;action:string;objectType:string;objectId:string;result:'success'|'denied'|'error';metadata?:Record<string,string|number|boolean>}
 export interface Citation {sourceId:string;title:string;locator:string}
 export interface AIRequest {task:'growth_note'|'reference_match'|'mission_review'|'command_summary'|'assistant';prompt:string;context:string[];citations?:Citation[]}

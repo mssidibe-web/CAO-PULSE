@@ -1,4 +1,4 @@
-import type {Action,AuditEvent,BidDecision,BillingMilestone,EvidenceItem,ExpertProfile,KnowledgeItem,MarketSignal,Mission,MissionDocument,OfferRequirement,Opportunity,PBCRequest,ReferenceCase,ReviewPoint,User} from '@/lib/types';
+import type {Action,AuditEvent,BidDecision,BillingMilestone,EvidenceItem,ExpertProfile,KnowledgeItem,MarketSignal,Mission,MissionDocument,MissionDraftReview,OfferRequirement,Opportunity,PBCRequest,ReferenceCase,ReviewPoint,User} from '@/lib/types';
 
 export const users:User[]=[
  {id:'u-founder',name:'Fondateur C.A.O (démo)',role:'founder',missionIds:[],active:true},
@@ -97,6 +97,8 @@ export const knowledge:KnowledgeItem[]=[
  {id:'kn-002',title:'Règle preuve commerciale',kind:'policy',content:'Une référence proof-ready exige une preuve vérifiée, réutilisable et retrouvable. Une référence pertinente sans preuve n’est pas présentée comme recevable.',sourceId:'CAO-POL-002',allowedRoles:['founder','commercial','quality','admin']},
  {id:'kn-003',title:'Note de capitalisation audit projets',kind:'reference_note',content:'Les références proches en audit projets doivent être rapprochées des exigences exactes du TDR et non utilisées par simple similarité sectorielle.',sourceId:'CAO-REF-003',allowedRoles:['founder','commercial','manager','expert','quality','admin']}
 ];
+
+export const draftReviews:MissionDraftReview[]=[];
 
 export const auditEvents:AuditEvent[]=[
  {id:'ae-001',timestamp:'2026-09-30T09:00:00Z',userId:'u-manager',action:'read_mission',objectType:'mission',objectId:'mis-001',result:'success'},
