@@ -43,6 +43,7 @@ The following checks were executed against the implemented local repository afte
 | `npm run trace:verify` | PASS — 27 requirements |
 | `LIVE_AI=false npm run models:eval` | PASS in intentional offline mode — 6 frozen candidate cases listed |
 | Demo smoke | PASS with an explicit isolated-demo Founder session: health, dashboard, opportunities and references returned 200 |
+| Release archive | PASS — `CAO_PULSE_release-4924b8f.zip`, SHA-256 `62b9d70bfb15ee2e4c5c2f0380dc080755f666fb311808be479339682bb85cc9` verified with `unzip -t` |
 
 ## Known limitations and deployment boundary
 - The repository is a **synthetic, offline-first demonstrator**. Its repository state and opaque demo sessions are in memory and are resettable; they are not production persistence or authentication.
