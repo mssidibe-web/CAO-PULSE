@@ -1,4 +1,4 @@
-import type {Action,AuditEvent,BillingMilestone,EvidenceItem,ExpertProfile,KnowledgeItem,Mission,MissionDocument,OfferRequirement,Opportunity,PBCRequest,ReferenceCase,ReviewPoint,User} from '@/lib/types';
+import type {Action,AuditEvent,BidDecision,BillingMilestone,EvidenceItem,ExpertProfile,KnowledgeItem,Mission,MissionDocument,OfferRequirement,Opportunity,PBCRequest,ReferenceCase,ReviewPoint,User} from '@/lib/types';
 
 export const users:User[]=[
  {id:'u-founder',name:'Fondateur C.A.O (démo)',role:'founder',missionIds:[],active:true},
@@ -43,6 +43,10 @@ export const opportunities:Opportunity[]=[
  {id:'opp-002',title:'Diagnostic performance et contrôle interne - réseau SFD',buyer:'Union Finance Inclusive',country:'Mali',sector:'microfinance',source:'Expression de besoin synthétique',sourceUrl:'https://example.invalid/opp-002',fundingStatus:'likely',deadline:'2026-10-15',estimatedValue:14500000,currency:'XOF',stage:'qualification',ownerId:'u-commercial',nextAction:'Confirmer périmètre et disponibilité expert SI',dueDate:'2026-10-04',priority:'high',scores:{strategic:92,references:72,capacity:65,access:75,economics:78,competition:70},gates:{eligibility:'PASS',independence:'PASS',funding:'WARN'},referenceIds:['ref-003'],expertIds:['exp-002'],requirementIds:['req-004']},
  {id:'opp-003',title:'Audit externe - Projet Gouvernance Locale',buyer:'Projet Kalo',country:'Mali',sector:'public',source:'AMI synthétique',sourceUrl:'https://example.invalid/opp-003',fundingStatus:'confirmed',deadline:'2026-10-06',estimatedValue:18000000,currency:'XOF',stage:'decision',ownerId:'u-commercial',nextAction:'Résoudre contrôle d’indépendance',dueDate:'2026-10-01',priority:'high',scores:{strategic:85,references:88,capacity:80,access:70,economics:82,competition:68},gates:{eligibility:'PASS',independence:'BLOCKED',funding:'PASS'},referenceIds:['ref-001'],expertIds:['exp-001'],requirementIds:['req-005']},
  {id:'opp-004',title:'Appui manuel de procédures - entreprise logistique',buyer:'Logis Sahel SA',country:'Mali',sector:'entreprise',source:'Relation existante synthétique',sourceUrl:'https://example.invalid/opp-004',fundingStatus:'unknown',deadline:'2026-10-30',estimatedValue:9000000,currency:'XOF',stage:'signal',ownerId:'u-commercial',nextAction:'Qualifier budget et décideur',dueDate:'2026-10-07',priority:'medium',scores:{strategic:70,references:55,capacity:75,access:80,economics:72,competition:75},gates:{eligibility:'PASS',independence:'PASS',funding:'WARN'},referenceIds:['ref-002'],expertIds:['exp-002'],requirementIds:[]}
+];
+
+export const bidDecisions:BidDecision[]=[
+ {id:'bd-001',opportunityId:'opp-002',decision:'GO_CONDITIONAL',rationale:'Poursuivre la qualification sous réserve de confirmer le financement et la disponibilité de l’expert SI.',decidedBy:'u-founder',decidedAt:'2026-09-29T10:00:00Z'}
 ];
 
 export const missions:Mission[]=[
