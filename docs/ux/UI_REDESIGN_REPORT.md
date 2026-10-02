@@ -14,6 +14,7 @@
 | Références surtout sous forme de table | Portefeuille de références, proof readiness, evidence ledger et chaîne de rapprochement |
 | Missions principalement listées | Mission Control et Mission Command Room avec timeline, vigilance PBC/revue et Copilot |
 | Facturation en cartes simples | Cash Signals, quatre statuts, timeline et registre opérationnel |
+| Aucun espace de démonstration RAG | Corpus RAG contrôlé : ingestion texte, RBAC, citations, audit et abstention |
 
 ## Composants créés
 
@@ -39,6 +40,7 @@ Captures revues localement à **1440×900** :
 - Opportunity Radar
 - Reference Intelligence
 - Mission Command Room
+- Corpus RAG contrôlé
 
 Le Command Center présentait une première anomalie de mise en page sur l’Attention Stream ; les styles de grille ont été rétablis. La capture de contrôle confirme quatre lignes distinctes, lisibles, sans overlap ni clipping critique.
 
@@ -48,8 +50,8 @@ Les tests E2E incluent des smoke checks à **1366×768** et **1440×900**, ainsi
 
 - `npm run lint` — PASS
 - `npm run typecheck` — PASS
-- `npm run test` — 9 fichiers / 26 tests PASS
-- `LIVE_AI=false npm run test:e2e` — 7 scénarios PASS après ajout du drawer
+- `npm run test` — 10 fichiers / 29 tests PASS
+- `LIVE_AI=false npm run test:e2e` — 7 scénarios PASS, incluant la route RAG et le drawer
 - contrôle visuel des surfaces principales à 1440×900 — PASS
 
 ## Limites restantes
