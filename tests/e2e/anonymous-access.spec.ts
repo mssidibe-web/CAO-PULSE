@@ -2,6 +2,7 @@ import {expect,test} from '@playwright/test';
 
 test('anonymous requests fail closed',async({request})=>{
   expect((await request.post('/api/persona',{data:{userId:'u-admin'}})).status()).toBe(403);
+  expect((await request.get('/')).status()).toBe(200);
   expect((await request.get('/api/dashboard')).status()).toBe(403);
   expect((await request.get('/api/references')).status()).toBe(403);
   expect((await request.get('/api/search?q=audit')).status()).toBe(401);
