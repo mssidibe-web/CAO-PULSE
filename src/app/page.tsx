@@ -1,9 +1,6 @@
 import {redirect} from 'next/navigation';
-import {PageHead} from '@/components/page-head';
+import {DemoEntry} from '@/components/demo-entry';
 import {currentUser} from '@/lib/session';
 
-export default async function Home(){
-  const user=await currentUser();
-  if(user.role!=='anonymous')redirect(['founder','admin'].includes(user.role)?'/dashboard':'/growth');
-  return <><PageHead eyebrow="Accès démo" title="CAO PULSE" sub="Sélectionnez une persona dans la barre supérieure pour ouvrir le démonstrateur. Les données sont synthétiques et le mode IA est déterministe par défaut."/><div className="card" style={{maxWidth:760,marginTop:18}}><div className="section-title" style={{marginTop:0}}>Démarrer la démonstration</div><p className="muted">Utilisez le sélecteur <strong>Persona</strong> en haut à droite. Le Fondateur ouvre le cockpit complet ; les autres personas démontrent les accès par rôle et par mission.</p><div className="source">Aucune donnée réelle, aucun envoi externe et aucune décision professionnelle automatique.</div></div></>;
-}
+const modules=[['01','Growth Engine','Qualifier les signaux, arbitrer les opportunités et sécuriser les offres.'],['02','Reference Intelligence','Rapprocher les exigences, les références, les preuves et les experts.'],['03','Command Center','Rendre visibles les décisions, alertes et leviers de pilotage.'],['04','Delivery Copilot','Piloter les missions et préparer des brouillons sous validation humaine.']];
+export default async function Home(){const user=await currentUser();if(user.role!=='anonymous')redirect(['founder','admin'].includes(user.role)?'/dashboard':'/growth');return <div className="landing-hero"><div className="eyebrow">CAO PULSE · PORTAIL EXÉCUTIF</div><h1 className="landing-title">Croissance.<br/>Preuve. Pilotage.<br/>Exécution.</h1><p className="landing-lead">Le système de pilotage augmenté qui transforme les opportunités, références, missions et données de gestion de C.A.O en décisions actionnables.</p><DemoEntry/><div className="trust-row"><span className="trust-item">DONNÉES SYNTHÉTIQUES</span><span className="trust-item">OFFLINE READY</span><span className="trust-item">HUMAN JUDGMENT REQUIRED</span></div><section className="module-grid" aria-label="Les quatre moteurs CAO PULSE">{modules.map(([index,title,copy])=><article className="module-panel" key={index}><div className="module-index">{index}</div><h2>{title}</h2><p className="muted">{copy}</p></article>)}</section></div>}
